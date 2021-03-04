@@ -1,0 +1,73 @@
+body {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.cards {
+  display: flex;
+}
+
+.card {
+  margin: 20px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h3 {
+  text-align: center;
+}
+
+button {
+  border: none;
+  background: #e64b4d;
+  border-bottom: 2px solid #cb3737;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  transition: background 200ms linear;
+  font-family: "Courier New", Courier, monospace;
+}
+button:hover {
+  background: gray;
+  border-bottom: 2px solid black;
+}
+
+.modal-outer {
+  background: rgba(0, 0, 0, 0.6);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 300ms ease-in;
+}
+
+.modal-inner {
+  background: white;
+  min-width: 250px;
+  min-height: 300px;
+  padding: 20px;
+  border-radius: 2px;
+}
+
+.show {
+  opacity: 1;
+  pointer-events: all;
+}
+
+table {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+td {
+  padding-right: 20px;
+}
