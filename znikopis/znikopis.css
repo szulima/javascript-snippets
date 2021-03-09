@@ -1,0 +1,73 @@
+body {
+  background-image: url(toy-shop.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+body > p {
+  text-align: center;
+  background: yellow;
+  padding: 10px 0;
+}
+
+.znikopis__wrapper {
+  border-radius: 80px;
+  border: 70px solid red;
+  background: white;
+  position: relative;
+  max-height: 70vh;
+}
+.znikopis__title {
+  color: gold;
+  font-size: 40px;
+  font-family: cursive;
+  margin: 0;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.znikopis__handle {
+  background: white;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  position: absolute;
+  border: none;
+}
+
+.znikopis__handle__left {
+  bottom: -50px;
+  left: -50px;
+}
+
+.znikopis__handle__right {
+  bottom: -50px;
+  right: -50px;
+}
+
+.znikopis__shake {
+  position: absolute;
+  bottom: -120px;
+  left: 50%;
+  transform: translate(-50%, 0);
+
+  background: gold;
+  border: none;
+  padding: 10px 30px;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid black;
+  cursor: pointer;
+
+  animation: shake 0.5s linear 1;
+}
+
+canvas {
+  width: 100%;
+  height: 100%;
+  max-height: 70vh;
+}
