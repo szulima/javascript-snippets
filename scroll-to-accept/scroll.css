@@ -1,0 +1,33 @@
+body {
+  background: greenyellow;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.terms__wrapper {
+  margin: 50px auto;
+  background: white;
+  border: 2px solid black;
+  padding: 40px;
+  max-width: 500px;
+  height: 80vh;
+  display: grid;
+}
+
+.terms__text {
+  overflow: scroll;
+}
+
+.terms__button {
+  background: blueviolet;
+  color: white;
+  border: none;
+  padding: 10px 30px;
+  font-size: 20px;
+  cursor: pointer;
+  margin: 10px 0;
+}
+
+.terms__button[disabled] {
+  opacity: 0.2;
+  cursor: default;
+}
