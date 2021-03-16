@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <link rel="stylesheet" href="tabs.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="tabs">
+        <div role="tablist">
+          <button role="tab" aria-selected="true" id="1">Tab 1</button>
+          <button role="tab" aria-selected="false" id="2">Tab 2</button>
+          <button role="tab" aria-selected="false" id="3">Tab 3</button>
+        </div>
+        <div role="tab-panel" aria-labelledby="1">Content of tab #1</div>
+        <div role="tab-panel" aria-labelledby="2" hidden>Content of tab #2</div>
+        <div role="tab-panel" aria-labelledby="3" hidden>Content of tab #3</div>
+      </div>
+    </div>
+
+    <script src="tabs.js"></script>
+  </body>
+</html>
