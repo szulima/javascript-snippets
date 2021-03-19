@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animating a Snake</title>
+    <link rel="shortcut icon" href="snake.png" type="image/jpg" />
+  </head>
+  <body>
+    <style>
+      body {
+        background: #222222;
+      }
+      .snake {
+        transition: all 0.2s linear;
+      }
+    </style>
+    <img width="100" src="snake.png" alt="Snake" class="snake" />
+    <script>
+      const snake = document.querySelector(".snake");
+      snake.style.transform = "rotateY(180deg)";
+
+      snake.style.position = "absolute";
+      let x = 0;
+      let y = 0;
+      snake.style.left = `${x}px`;
+      snake.style.top = `${y}px`;
+
+      let rotateY = false;
+
+      let speed = 50;
+
+      function handleKeyDown(e) {
+        if (!e.key.includes("Arrow")) return;
+
+        switch (e.key) {
+          case "ArrowRight":
+            x += 1;
+            rotateY = false;
+            break;
+          case "ArrowLeft":
+            x -= 1;
+            rotateY = true;
+            break;
+          case "ArrowDown":
+            y += 1;
+            break;
+          case "ArrowUp":
+            y -= 1;
+            break;
+          default:
+            console.log("Click arrow key to move the snake.");
+        }
+        snake.style.left = `${x * speed}px`;
+        snake.style.top = `${y * speed}px`;
+        snake.style.transform = rotateY ? "rotateY(0deg)" : "rotateY(180deg)";
+      }
+
+      window.addEventListener("keydown", handleKeyDown);
+    </script>
+  </body>
+</html>
