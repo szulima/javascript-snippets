@@ -6,7 +6,8 @@
     <title>Animation Chain</title>
   </head>
   <body>
-    <div>Click me!</div>
+    <div class="callback-hell">Click me! Callback hell</div>
+    <div class="promise-land">Click me! Promises</div>
 
     <style>
       body {
@@ -22,16 +23,33 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: all ease-in-out 0.1s;
+        transition: all 0.1s;
+        margin: 3rem;
+      }
+
+      .circle {
+        border-radius: 50%;
+      }
+      .red {
+        background-color: red;
+      }
+      .purple {
+        background-color: purple;
+        color: white;
+      }
+      .fade-out {
+        opacity: 0;
       }
     </style>
 
     <script>
+      // ### CALLBACK HELL
+
       // 1. change the text to GO when clicked
-      let square = document.querySelector("div");
+      let square = document.querySelector(".callback-hell");
       square.addEventListener("click", () => {
         square.textContent = "Go!";
-        // 2. make it a circle after 2 seconds
+        // 2. make it a circle after 1 second
         setTimeout(() => {
           square.style.borderRadius = "50%";
           // 3. make it red after 0.5s
@@ -50,7 +68,45 @@
               }, 300);
             }, 250);
           }, 500);
-        }, 2000);
+        }, 1000);
+      });
+
+      // ### PROMISE LAND ###
+
+      function delay(ms = 0) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, ms);
+        });
+      }
+
+      let square2 = document.querySelector(".promise-land");
+      // 1. change the text to GO when clicked
+      square2.addEventListener("click", () => {
+        square2.textContent = "GO!";
+        // 2. make it a circle after 2 seconds
+        delay(2000)
+          .then(() => {
+            square2.classList.add("circle");
+            // 3. make it red after 0.5s
+            return delay(500);
+          })
+          .then(() => {
+            square2.classList.add("red");
+            // 4. make it square after 0.25s
+            return delay(250);
+          })
+          .then(() => {
+            square2.classList.remove("circle");
+            // 5. make it purple after 0.3s
+            return delay(300);
+          })
+          .then(() => {
+            square2.classList.remove("red");
+            square2.classList.add("purple");
+            // 6. fade out after 0.5s
+            return delay(500);
+          })
+          .then(() => square2.classList.add("fade-out"));
       });
     </script>
   </body>
