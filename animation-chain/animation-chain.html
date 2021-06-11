@@ -8,6 +8,7 @@
   <body>
     <div class="callback-hell">Click me! Callback hell</div>
     <div class="promise-land">Click me! Promises</div>
+    <div class="async-await">Click me! Async Await</div>
 
     <style>
       body {
@@ -17,14 +18,15 @@
       }
 
       div {
-        width: 300px;
-        height: 300px;
+        width: 8rem;
+        height: 8rem;
         background-color: crimson;
         display: flex;
         justify-content: center;
         align-items: center;
         transition: all 0.1s;
-        margin: 3rem;
+        margin: 1rem;
+        text-align: center;
       }
 
       .circle {
@@ -107,6 +109,36 @@
             return delay(500);
           })
           .then(() => square2.classList.add("fade-out"));
+      });
+
+      // ### ASYNC AWAIT ###
+
+      function delay(ms = 0) {
+        return new Promise(function (resolve) {
+          setTimeout(resolve, ms);
+        });
+      }
+
+      let square3 = document.querySelector(".async-await");
+      // 1. change the text to GO when clicked
+      square3.addEventListener("click", async () => {
+        square3.textContent = "GO!";
+        // 2. make it a circle after 2 seconds
+        await delay(2000);
+        square3.classList.add("circle");
+        // 3. make it red after 0.5s
+        await delay(500);
+        square3.classList.add("red");
+        // 4. make it square after 0.25s
+        await delay(250);
+        square3.classList.remove("circle");
+        // 5. make it purple after 0.3s
+        await delay(300);
+        square3.classList.remove("red");
+        square3.classList.add("purple");
+        // 6. fade out after 0.5s
+        await delay(500);
+        square3.classList.add("fade-out");
       });
     </script>
   </body>
